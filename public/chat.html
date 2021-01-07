@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-analytics.js"></script>
+<script src="logout.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>I-chat webapp</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="componentstyle.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    <link rel="icon" href="icon.jpg" type="image/icon type">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+      integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header" style="background: white;">
+                <h3 style="color: rgba(0, 0, 0, 0.849);">             <img src="icon.png" alt="logo"> 
+                </h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="joinroom.html">Create new Group</a>
+                </li>
+                
+               
+                
+                <li>
+                    <a href="index.html" onclick="signOut()" id="signOut">Logout</a>
+                </li>
+            </ul>
+            
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+            <div class="chat-container">
+                <header class="chat-header">
+                  <h1><img src="icon.png" alt="logo" height=40px>   I-chat App</h1>
+                  <a href="joinroom.html" class="btn">Leave Room</a>
+                </header>
+                <main class="chat-main">
+                  <div class="chat-sidebar">
+                    <h3><i class="fas fa-layer-group"></i> Group Name:</h3>
+                    <h2 id="room-name"></h2>
+                    <h3><i class="fas fa-user-secret"></i>Active Users</h3>
+                    <ul id="users"></ul>
+                  </div>
+                  <div class="chat-messages"></div>
+                </main>
+                <div class="chat-form-container">
+                  <form id="chat-form">
+                    <input
+                      id="msg"
+                      type="text"
+                      placeholder="Enter Message"
+                      required
+                      autocomplete="off"
+                    />
+                    <button class="btn"><i class="fas fa-paper-plane"></i> Send</button>
+                  </form>
+                </div>
+              </div>
+          
+              <script
+                src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.2/qs.min.js"
+                integrity="sha256-TDxXjkAUay70ae/QJBEpGKkpVslXaHHayklIVglFRT4="
+                crossorigin="anonymous"
+              ></script>
+              <script src="/socket.io/socket.io.js"></script>
+              <script src="js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
+            });
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar, #content').toggleClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
